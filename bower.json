@@ -1,0 +1,29 @@
+{
+  "name": "project-templates",
+  "authors": [
+    "Mahidhar Mullapudi"
+  ],
+  "description": "Diverse templates for cross domain application using plain bootstrap3 and jquery",
+  "main": "",
+  "keywords": [
+    "bootstrap",
+    "3",
+    "jquery",
+    "ecommerce",
+    "forms"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.6.3",
+    "moment": "^2.18.1"
+  }
+}
