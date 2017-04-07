@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ECAS-Home</title>
+    <title>ETAS-Home</title>
 
     <!-- Bootstrap CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,9 +50,11 @@
                 <li>
                     <a href="#">Home</a>
                 </li>
+
                 <li>
                     <a href="#">About</a>
                 </li>
+
                 <li>
                     <a href="contact.html">Contact</a>
                 </li>
@@ -113,10 +115,10 @@
         <div class="col-sm-2">
             <div class="list-group">
                 <a href="index.html" class="list-group-item">Home</a>
-                <a href="about.html" class="list-group-item">Add Timesheet</a>
-                <a href="services.html" class="list-group-item">View Timesheet</a>
-                <a href="services.html" class="list-group-item">View Timeoffs</a>
-                <a href="contact.html" class="list-group-item">Reports</a>
+                <a href="addTimesheet.html" class="list-group-item">Add Timesheet</a>
+                <a href="manageTimesheet.html" class="list-group-item">View Timesheet</a>
+                <a href="#" class="list-group-item">View Timeoffs</a>
+                <a href="#" class="list-group-item">Reports</a>
             </div>
         </div>
         <div class="col-sm-10">
@@ -179,7 +181,7 @@
                                         <div class="input-group">
                                                     <span class="input-group-addon"><i
                                                             class="glyphicon glyphicon-time"></i></span>
-                                            <input name="first_name" placeholder="End Date"
+                                            <input  name="first_name" placeholder="End Date"
                                                    class="form-control" type="date">
                                         </div>
                                     </div>
@@ -232,58 +234,58 @@
                             </tr>
                             <tr>
                                 <th>RT</th>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td>32.0</td>
+                                <td><input id="text1" type="text" class="form-control input-sm rtinput monInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text2" type="text" class="form-control input-sm rtinput tueInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text3" type="text" class="form-control input-sm rtinput wedInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text4" type="text" class="form-control input-sm rtinput thuInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text5" type="text" class="form-control input-sm rtinput friInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text6" type="text" class="form-control input-sm rtinput satInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="text7" type="text" class="form-control input-sm rtinput sunInput decimal" size="4" onchange="checkRtLimit(this, this.value); calcTotalRt();"></td>
+                                <td><input id="totalRT" type="text" class="form-control input-sm totalweek" size="4" readonly="true"></td>
                             </tr>
                             <tr>
                                 <th>OT</th>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td>2.0</td>
+                                <td><input  type="text" class="form-control input-sm otinput monInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput tueInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput wedInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput thuInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput friInputdecimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput satInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input  type="text" class="form-control input-sm otinput sunInput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOt();"></td>
+                                <td><input id="totalOT" type="text" class="form-control input-sm totalweek" size="4" readonly="true"></td>
                             </tr>
                             <tr>
                                 <th>OT Approved</th>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td>2.0</td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input  type="text" class="form-control input-sm otapprinput decimal" size="4" onchange="checkOtLimit(this, this.value);calcTotalOtAppr();"></td>
+                                <td><input id="totalOTApproved" type="text" class="form-control input-sm totalweek" size="4" readonly="true"></td>
                             </tr>
                             <tr>
                                 <th>Time OFF</th>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td><input type="text" class="form-control input-sm" size="4"></td>
-                                <td>8.0 (OFF)</td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input  type="text" class="form-control input-sm timeoffinput decimal" size="4" onchange="checkTimeOffLimit(this, this.value);calcTotalTimeOff();"></td>
+                                <td><input id="totalTimeOff" type="text" class="form-control input-sm  totalweek" size="4" readonly="true"></td>
                             </tr>
                             <tr>
                                 <th>Total Hours(per Day)</th>
-                                <td>8.0</td>
-                                <td>8.0</td>
-                                <td>0.0</td>
-                                <td>8.0</td>
-                                <td>10.0</td>
-                                <td>0.0</td>
-                                <td>0.0</td>
-                                <td>34.0</td>
+                                <td><input id="monInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="tueInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="wedInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="thuInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="friInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="satInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="sunInput" type="text" class="form-control input-sm" size="4" readonly="true"></td>
+                                <td><input id="totalWeekHours" type="text" class="form-control input-sm" size="4" readonly="true"></td>
                             </tr>
 
                         </table>
@@ -315,7 +317,7 @@
 <footer>
     <div class="container">
         <div class="col-md-12">
-            <p>Copyright &copy; Mahidhar Mullapudi 2016</p>
+            <p>Copyright &copy; TechNumen Inc., 2017</p>
         </div>
     </div>
 </footer>
@@ -323,7 +325,119 @@
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bower_components/moment/min/moment.min.js"></script>
+<script src="addTimeSheet.js"></script>
+<script>
 
+    $(document).ready(function() {
+        //Validating for decimal values only being entered
+        $('.decimal').keypress(function(e) {
+            if (e.which !== 46 && e.which !== 8 && e.which !== 0 && (e.which < 48 || e.which > 57)) {
+                alert("Numbers only");
+                return false;
+            }
+        });
+        //Validating for numeric values only being entered
+        $('.numeric').keypress(function(e) {
+            if (e.which !== 8 && e.which !== 0 && (e.which < 48 || e.which > 57)) {
+                alert("Numbers only");
+                return false;
+            }
+        });
+    });
+
+    function checkRtLimit(pointer, rtValue) {
+        console.log("Pointer ID:" +pointer.id);
+        if( rtValue > 8 ) {
+            pointer.focus();
+            alert("Regular Time cannot be greater than 8 Hours a day");
+        }
+    }
+
+    function checkOtLimit(pointer, otValue) {
+        console.log("Pointer ID:" +pointer.id);
+        if( otValue > 4 ) {
+            pointer.focus();
+            alert("Over Time cannot be greater than 4 Hours a day");
+        }
+    }
+
+    function checkTimeOffLimit(pointer, timeOff) {
+        console.log("Pointer ID:" +pointer.id);
+        if(timeOff != 4 || timeOff != 8) {
+            pointer.focus();
+            alert("Time off should be either 4 Hours or 8 Hours");
+        }
+    }
+
+    function calcTotalRt() {
+        var sum = calcSumByClassName("rtinput");
+        $("#totalRT").val(sum);
+        calcWeekTotals();calcDayTotals();
+    }
+
+    function calcTotalOt() {
+        var sum = calcSumByClassName("otinput");
+        $("#totalOT").val(sum);
+        calcWeekTotals();calcDayTotals();
+    }
+    
+    function calcTotalOtAppr() {
+        var sum = calcSumByClassName("otapprinput");
+        $("#totalOTApproved").val(sum);
+        calcWeekTotals();calcDayTotals();
+    }
+    
+    function calcTotalTimeOff () {
+        var sum = calcSumByClassName('timeoffinput');
+        $("#totalTimeOff").val(sum);
+        calcWeekTotals();calcDayTotals();
+    }
+    
+    function calcDayTotals() {
+        $('#monInput').val(calcSumByClassName("monInput"));
+        $('#tueInput').val(calcSumByClassName("tueInput"));
+        $('#wedInput').val(calcSumByClassName("wedInput"));
+        $('#thuInput').val(calcSumByClassName("thuInput"));
+        $('#friInput').val(calcSumByClassName("friInput"));
+        $('#satInput').val(calcSumByClassName("satInput"));
+        $('#sunInput').val(calcSumByClassName("sunInput"));
+    }
+
+    function calcWeekTotals() {
+        var sum = 0;
+        var val1 = $("#totalRT").val();
+        var val2 =  $("#totalOT").val();
+
+        if (val1) {
+            val1 = parseFloat(val1.replace(/^\$/, ""));
+            val1 = !isNaN(val1) ? val1 : 0;
+        }
+
+        if (val2) {
+            val2 = parseFloat(val2.replace(/^\$/, ""));
+            val2 = !isNaN(val2) ? val2 : 0;
+        }
+        
+        var sum =  val1 + val2;
+        $('#totalWeekHours').val(sum);
+    }
+
+    function calcSumByClassName(className) {
+        var sum = 0;
+        var x = document.getElementsByClassName(className);
+        for (var i = 0; i < x.length; i++) {
+            var val = $.trim(x[i].value);
+            if (val) {
+                val = parseFloat(val.replace(/^\$/, ""));
+                sum += !isNaN(val) ? val : 0;
+                console.log("Sum: " +sum);
+            }
+        }
+
+        return sum;
+    }
+
+</script>
 </body>
 
 </html>

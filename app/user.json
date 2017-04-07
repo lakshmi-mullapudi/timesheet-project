@@ -1,0 +1,14 @@
+{
+  "userDetails": [
+    {
+      "key": "name",
+      "value": "Mahidhar Mullapudi"
+    },{
+      "key": "empId",
+      "value": "123456897"
+    },{
+      "key": "title",
+      "value": "AssociateDepartment"
+    }
+  ]
+}
